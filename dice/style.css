@@ -22,14 +22,14 @@ input {
 }
 
 .button-area {
-    margin-top: 20px;
+    margin-top: 10px;
     text-align: center;
 }
 
 button {
     width: 250px;
-    height: 100px;
-    font-size: 4rem;
+    height: 80px;
+    font-size: 3rem;
     font-weight: bold;
     background-color: #fc466b;
     color: white;
@@ -73,6 +73,7 @@ p {
 }
 
 img {
-    width: 240px;
+    max-width: 180pt;
+    height: auto;
 }
 
