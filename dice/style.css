@@ -27,9 +27,9 @@ input {
 }
 
 button {
-    width: 250px;
-    height: 80px;
-    font-size: 3rem;
+    width: 40%;
+    height: 5%;
+    font-size: 8vw;
     font-weight: bold;
     background-color: #fc466b;
     color: white;
@@ -46,15 +46,15 @@ button:active {
 }
 
 h1 {
-    margin: 20px;
-    font-size: 4rem;
+    margin: 10px;
+    font-size: 5vw;
     color: rgb(208, 214, 218);
     text-align: center;
 }
 
 h2 {
     margin: 10px;
-    font-size: 3rem;
+    font-size: 5vw;
     font-weight: bold;
     color: rgb(208, 214, 218);
     text-align: center;
@@ -62,7 +62,7 @@ h2 {
 }
 
 .dice-area {
-    margin: 0px 20px;
+    margin: 0px 5px;
     text-align: center;
     display: inline-block;
 }
@@ -73,7 +73,8 @@ p {
 }
 
 img {
-    max-width: 180pt;
+    width: 100%;
+    max-width: 240px;
     height: auto;
 }
 
