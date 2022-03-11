@@ -4,7 +4,7 @@ document.querySelector('h2').innerHTML = "Let's begin!"
 var firstRandomNumber = 0
 var secondRandomNumber = 0
 
-const allEmojis = ["🏆","🎉","🏅","🤹","💎","🦖","🥇","🥳"]
+const allEmojis = ["🏆","🎉","🏅","🤹","💎","🦖","🥇","🥳","🐓","🥥","🥑","🥝","🍉","🥨","🍕","🧋","🏀","🏰"]
 
 const player1Name = document.getElementById('diceuser1')
 const player2Name = document.getElementById('diceuser2')

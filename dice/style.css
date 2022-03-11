@@ -5,37 +5,41 @@ body {
 }
 
 .wrapper {
-    width: 70%;
+    width: 95%;
+    max-width: 800px;
+    height: auto;
     margin: auto;
     text-align: center;
 }
 
 input {
-    padding: 10px 10px;
-    font-size: 1rem;
+    width: 15rem;
+    padding: 6px 6px;
+    font-size: 1.4rem;
     border-radius: 12px;
     border: 2px solid black;
     box-shadow: 1px 2px rgb(41, 40, 40);
-    margin: 10px;
+    margin: 15px 10px 0px 10px;
     display: inline-block;
     text-align: center;
 }
 
 .button-area {
-    margin-top: 10px;
+    margin-top: 20px;
     text-align: center;
 }
 
 button {
-    width: 25vw;
-    height: 8vw;
-    font-size: 6vw;
-    font-weight: bold;
+    width: 10rem;
+    height: 60px;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: bolder;
     background-color: #fc466b;
     color: white;
-    border-radius: 20px;
-    border: 4px solid black;
-    box-shadow: 5px 5px rgb(41, 40, 40);
+    border-radius: 18px;
+    border: 3px solid black;
+    box-shadow: 2px 3px rgb(41, 40, 40);
 }
 
 button:hover {background-color: #cd3956}
@@ -46,35 +50,48 @@ button:active {
 }
 
 h1 {
-    margin: 10px;
-    font-size: 4vw;
-    color: rgb(208, 214, 218);
+    margin-top: 20px;
+    margin-bottom: 5px;
+    line-height: 150%;
+    font-size: 5rem;
+    color: white;
     text-align: center;
 }
 
 h2 {
     margin: 10px;
-    font-size: 4vw;
-    font-weight: bold;
-    color: rgb(208, 214, 218);
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: white;
     text-align: center;
-    text-shadow: 3px 3px black;
+    text-shadow: 1px 1px black;
 }
 
 .dice-area {
-    margin: 0px 5px;
+    width: 9.5rem;
+    margin: 15px 8px;
     text-align: center;
     display: inline-block;
+    vertical-align: top;
 }
 
 p {
-    font-size: 2rem;
-    color: rgb(208, 214, 218);
+    font-size: 1.1rem;
+    word-wrap: break-word;
+    font-weight: 900;
+    color: rgb(223, 188, 197);
+}
+
+#showplayer1 {
+    text-shadow: 0px 0px 3px #fc466b;
+}
+
+#showplayer2 {
+    text-shadow: 0px 0px 3px #3f5efb;
 }
 
 img {
-    width: 80%;
-    max-width: 240px;
+    max-width: 9.5rem;
     height: auto;
 }
 
