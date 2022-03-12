@@ -1,0 +1,87 @@
+body {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    background-color: pink;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 16px;
+}
+
+.pref-panel {
+    background-color: rgb(255, 255, 255);
+    width: 65%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 10px rgb(240, 130, 176);
+    font-size: 15px;
+}
+
+.level-panel {
+    font-weight: 900;
+}
+
+.level-panel input {
+    height: 12px;
+}
+
+.mode-panel {
+    margin-top: 15px;
+}
+
+.mode-panel input {
+    height: 12px;
+}
+
+.noqns-panel {
+    margin-top: 15px;
+}
+
+#applyChangeBtn {
+    height: 25px;
+    width: 60px;
+    margin-top: 15px;
+    background-color: pink;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.question {
+    font-size: 36px;
+}
+
+#user-answer {
+    margin-bottom: 0px;
+}
+
+#user-answer {
+    height: auto;
+    width: 100px;
+    padding: 3px;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#submitBtn {
+    height: auto;
+    padding: 3px;
+    width: 80px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.feedback {
+    margin-top: 20px;
+    font-size: 24px;
+}
