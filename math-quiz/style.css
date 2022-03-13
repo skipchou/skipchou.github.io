@@ -48,6 +48,15 @@ h2 {
     border: 2px solid black;
     border-radius: 5px;
     font-size: 16px;
+    box-shadow: 2px 3px rgb(41, 40, 40);
+}
+
+#applyChangeBtn:hover {background-color: rgb(226, 174, 182)}
+
+#applyChangeBtn:active {
+    background-color: rgb(255, 155, 174);
+    color: white;
+    box-shadow: 2px 2px rgb(69, 68, 68);
 }
 
 .question {
@@ -71,6 +80,11 @@ h2 {
     border: 2px solid black;
     border-radius: 5px;
     font-size: 24px;
+}
+
+#submitBtn:active {
+    background-color: pink;
+    color: white;
 }
 
 .feedback {
