@@ -99,16 +99,16 @@ function checkIfContinue() {
         document.getElementById('submitBtn').style.visibility = "hidden";
 
         if (noOfScore == noOfQuestions) {
-            medal = "🥇"
+            medal = "🥇 Perfect!"
         } else if (noOfScore / noOfQuestions >= 0.9) {
-            medal = "🥈"
+            medal = "🥈 Excellent!"
         } else if (noOfScore / noOfQuestions >= 0.85) {
-            medal = "🥉"
+            medal = "🥉 Great job!"
         } else {
-            medal = "😭"
+            medal = "🤦🏻‍♂️ You can do better!"
         }
 
-        document.querySelector('.question p').innerHTML = medal + ' Your score is ' + String(noOfScore) + " (" + String(Math.round(noOfScore/selectedQns*100)) + "%)"
+        document.querySelector('.question p').innerHTML = medal + "<br />" + ' Your score is ' + String(noOfScore) + " (" + String(Math.round(noOfScore/selectedQns*100)) + "%)"
 
         document.querySelector('.titles h2').innerHTML = '❤️  ❤️  ❤️'
     }
