@@ -68,7 +68,7 @@ h2 {
 }
 
 .dice-area {
-    width: 9.5rem;
+    width: 9rem;
     margin: 15px 8px;
     text-align: center;
     display: inline-block;
@@ -91,7 +91,7 @@ p {
 }
 
 img {
-    max-width: 9.5rem;
+    max-width: 9rem;
     height: auto;
 }
 
