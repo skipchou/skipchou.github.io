@@ -38,19 +38,19 @@ function generateQ() {
         }
     } else if (selectedLevel == "Medium") {
         if (['Addition', 'Subtraction'].includes(selectedMode)) {
-            rn1 = Math.floor(Math.random() * 50) + 1
-            rn2 = Math.floor(Math.random() * 50) + 1
+            rn1 = Math.floor(Math.random() * 49) + 2
+            rn2 = Math.floor(Math.random() * 48) + 3
         } else {
-            rn1 = Math.floor(Math.random() * 9) + 1
-            rn2 = Math.floor(Math.random() * 9) + 1     
+            rn1 = Math.floor(Math.random() * 8) + 2
+            rn2 = Math.floor(Math.random() * 8) + 2     
         }
     } else {
         if (['Addition', 'Subtraction'].includes(selectedMode)) {
-            rn1 = Math.floor(Math.random() * 100) + 1
-            rn2 = Math.floor(Math.random() * 100) + 1
+            rn1 = Math.floor(Math.random() * 99) + 2
+            rn2 = Math.floor(Math.random() * 97) + 4
         } else {
-            rn1 = Math.floor(Math.random() * 12) + 1
-            rn2 = Math.floor(Math.random() * 12) + 1      
+            rn1 = Math.floor(Math.random() * 11) + 2
+            rn2 = Math.floor(Math.random() * 11) + 2      
         }
 
     }
