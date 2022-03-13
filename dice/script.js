@@ -41,7 +41,7 @@ function rollFunc(){
         document.querySelector('h2').innerHTML = player2Name.value + ' wins!!!'
     } else {
         document.querySelector('h1').innerHTML = allEmojis[prizeRandomNumber]
-        document.querySelector('h2').innerHTML = "Daddy wins!!!"
+        document.querySelector('h2').innerHTML = "Nobody wins!!!"
     }
 
 }
