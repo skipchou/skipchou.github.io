@@ -83,7 +83,7 @@ function generateQ() {
             rn1 = Math.floor(Math.random() * 8) + 2
             rn2 = Math.floor(Math.random() * 8) + 2     
         }
-    } else if (['Hard', 'Crazy'].includes(selectedLevel)) {
+    } else if (selectedLevel == "Hard") {
         if (['Addition', 'Subtraction'].includes(selectedMode)) {
             rn1 = Math.floor(Math.random() * 99) + 2
             rn2 = Math.floor(Math.random() * 97) + 4
@@ -92,6 +92,14 @@ function generateQ() {
             rn2 = Math.floor(Math.random() * 11) + 2      
         }
 
+    } else if (selectedLevel == "Crazy") {
+        if (['Addition', 'Subtraction'].includes(selectedMode)) {
+            rn1 = Math.floor(Math.random() * 99) + 2
+            rn2 = Math.floor(Math.random() * 97) + 4
+        } else {
+            rn1 = Math.floor(Math.random() * 11) + 2
+            rn2 = Math.floor(Math.random() * 13) + 2      
+        }     
     }
 
     if (selectedMode == 'Addition') {
