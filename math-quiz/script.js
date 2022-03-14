@@ -1,16 +1,21 @@
 function getRadioValue() {
     selectedLevel = document.querySelector('input[name="level"]:checked').value;
     selectedMode = document.querySelector('input[name="mode"]:checked').value;
-    selectedQns = document.querySelector('input[name="noqns"]:checked').value;    
+    selectedQns = document.querySelector('input[name="noqns"]:checked').value;
 }
+
 
 function applyChange() {
 
     getRadioValue()
 
     // show all selected preferences
-    document.querySelector('.titles h1').innerHTML = selectedLevel + ' ' + selectedMode + ' ' + selectedQns
-
+    if (selectedQns != 999) {
+        document.querySelector('.titles h1').innerHTML = selectedLevel + ' ' + selectedMode + ' (' + selectedQns + ' Questions)'
+    } else {
+        document.querySelector('.titles h1').innerHTML = selectedLevel + ' ' + selectedMode + ' ' + '(1 Minute Challenge)'
+    }
+    
     // reset scores
     noOfScore = 0
     noOfQuestions = 0
@@ -56,6 +61,10 @@ function applyChange() {
         timeLimit = selectedQns * 2
     }
 
+    if (selectedQns == '999') {
+        timeLimit = 60
+    }
+
 }
 
 function generateQ() {
@@ -97,7 +106,7 @@ function generateQ() {
             rn1 = Math.floor(Math.random() * 99) + 2
             rn2 = Math.floor(Math.random() * 97) + 4
         } else {
-            rn1 = Math.floor(Math.random() * 11) + 2
+            rn1 = Math.floor(Math.random() * 6) + 9
             rn2 = Math.floor(Math.random() * 13) + 2      
         }     
     }
@@ -129,7 +138,12 @@ function checkIfContinue() {
     document.querySelector('.feedback p').innerHTML = '🌏'
 
     // recalculate score
-    document.querySelector('.score p').innerHTML = 'Score: ' + noOfScore + ' / ' + noOfQuestions + " (" + String(Math.round(noOfScore/selectedQns*100)) + "%)"
+    if (selectedQns != 999) {
+        document.querySelector('.score p').innerHTML = 'Progress: ' + noOfQuestions + ' / ' + selectedQns + " (Accuracy: " + String(Math.round(noOfScore/noOfQuestions*100)) + "%)"
+    } else {
+        document.querySelector('.score p').innerHTML = 'Score: ' + String(Math.round(noOfScore*noOfScore/noOfQuestions*100)) + " (Accuracy: " + String(Math.round(noOfScore/noOfQuestions*100)) + "%)"
+    }
+    
 
     // clear user answer
     document.getElementById('user-answer').value = ''
@@ -147,20 +161,27 @@ function checkIfContinue() {
         // disable answer box and button
         document.getElementById('user-answer').style.visibility = "hidden";
         document.getElementById('submitBtn').style.visibility = "hidden";
+        
+        document.querySelector('.titles h2').innerHTML = '❤️  ❤️  ❤️'
 
-        if (noOfScore == selectedQns) {
-            medal = "🥇 Perfect!"
-        } else if (noOfScore / selectedQns >= 0.9) {
-            medal = "🥈 Excellent!"
-        } else if (noOfScore / selectedQns >= 0.85) {
-            medal = "🥉 Great job!"
+        if (selectedQns != 999) {
+            if (noOfScore == selectedQns) {
+                medal = "🥇 Perfect!"
+            } else if (noOfScore / selectedQns >= 0.9) {
+                medal = "🥈 Excellent!"
+            } else if (noOfScore / selectedQns >= 0.8) {
+                medal = "🥉 Great job!"
+            } else {
+                medal = "🤦🏻‍♂️ You can do better!"
+            }
+    
+            document.querySelector('.question p').innerHTML = medal + "<br />" + "You answered " + String(Math.round(noOfScore/selectedQns*100)) + "% of the questions correctly."
+    
         } else {
-            medal = "🤦🏻‍♂️ You can do better!"
+            document.querySelector('.question p').innerHTML = '👍 Score: ' + String(Math.round(noOfScore * noOfScore / noOfQuestions * 100)) + "<br />" + "Answered: " + String(noOfQuestions) + "<br />" + "Accuracy: " + String(Math.round(noOfScore/noOfQuestions*100)) + "%"
         }
 
-        document.querySelector('.question p').innerHTML = medal + "<br />" + ' Your score is ' + String(noOfScore) + " (" + String(Math.round(noOfScore/selectedQns*100)) + "%)"
-
-        document.querySelector('.titles h2').innerHTML = '❤️  ❤️  ❤️'
+        
     }
 
 }
@@ -173,10 +194,10 @@ function evaluateAns() {
         if (answer == userAnswer.value) {
             document.querySelector('.feedback p').innerHTML = '✅'
             noOfScore++
-            setTimeout("checkIfContinue()", 400)
+            setTimeout("checkIfContinue()", 300)
         } else {
             document.querySelector('.feedback p').innerHTML = '❌ Answer: ' + answer
-            setTimeout("checkIfContinue()", 1200)
+            setTimeout("checkIfContinue()", 1000)
         }
 
         noOfQuestions++ //increment by 1
@@ -200,9 +221,9 @@ class Timer {
     }
   
     start () {
-      if (this.isRunning) {
-        return console.error('Timer is already running');
-      }
+    //   if (this.isRunning) {
+    //     return console.error('Timer is already running');
+    //   }
   
       this.isRunning = true;
   
@@ -210,9 +231,9 @@ class Timer {
     }
   
     stop () {
-      if (!this.isRunning) {
-        return console.error('Timer is already stopped');
-      }
+    //   if (!this.isRunning) {
+    //     return console.error('Timer is already stopped');
+    //   }
   
       this.isRunning = false;
   

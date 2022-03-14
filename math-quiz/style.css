@@ -2,7 +2,7 @@ body {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
-    background-color: pink;
+    background-color: rgba(255, 220, 226, 0.918);
     color: black;
 }
 
@@ -51,7 +51,7 @@ h2 {
     box-shadow: 2px 3px rgb(41, 40, 40);
 }
 
-#applyChangeBtn:hover {background-color: rgb(226, 174, 182)}
+#applyChangeBtn:hover {background-color: rgb(250, 208, 215)}
 
 #applyChangeBtn:active {
     background-color: rgb(255, 155, 174);
