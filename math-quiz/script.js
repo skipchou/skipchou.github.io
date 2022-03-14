@@ -53,7 +53,7 @@ function applyChange() {
     } else if (selectedLevel == "Hard") {
         timeLimit = selectedQns * 5 
     } else if (selectedLevel == "Crazy") {
-        timeLimit = selectedQns * 3
+        timeLimit = selectedQns * 2
     }
 
 }
