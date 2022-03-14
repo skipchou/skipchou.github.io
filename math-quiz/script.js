@@ -47,11 +47,13 @@ function applyChange() {
     checkIfContinue()
 
     if (selectedLevel == "Easy") {
-        timeLimit = selectedQns * 4
+        timeLimit = selectedQns * 5
     } else if (selectedLevel == "Medium") {
         timeLimit = selectedQns * 5  
     } else if (selectedLevel == "Hard") {
         timeLimit = selectedQns * 5 
+    } else if (selectedLevel == "Crazy") {
+        timeLimit = selectedQns * 3
     }
 
 }
@@ -81,7 +83,7 @@ function generateQ() {
             rn1 = Math.floor(Math.random() * 8) + 2
             rn2 = Math.floor(Math.random() * 8) + 2     
         }
-    } else if (selectedLevel == "Hard") {
+    } else if (['Hard', 'Crazy'].includes(selectedLevel)) {
         if (['Addition', 'Subtraction'].includes(selectedMode)) {
             rn1 = Math.floor(Math.random() * 99) + 2
             rn2 = Math.floor(Math.random() * 97) + 4
@@ -246,7 +248,7 @@ noOfScore = 0
 noOfQuestions = 0
 getRadioValue()
 
-document.querySelector('.question p').innerHTML = "🎟 Press Start"
+document.querySelector('.question p').innerHTML = ""
 
 // make element hidden
 document.getElementById('user-answer').style.visibility = "hidden";
