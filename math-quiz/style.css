@@ -23,7 +23,7 @@ h2 {
     margin-left: auto;
     margin-right: auto;
     padding: 10px;
-    border-radius: 15px;
+    border-radius: 6px;
     box-shadow: 0px 0px 10px rgb(240, 130, 176);
     font-size: 16px;
 }
@@ -42,13 +42,13 @@ h2 {
 
 #applyChangeBtn {
     height: 35px;
-    width: 200px;
+    width: 99%;
     margin-top: 10px;
     background-color: pink;
     border: 2px solid black;
     border-radius: 5px;
     font-size: 16px;
-    box-shadow: 2px 3px rgb(41, 40, 40);
+    box-shadow: 0px 3px rgb(41, 40, 40);
 }
 
 #applyChangeBtn:hover {background-color: rgb(250, 208, 215)}
@@ -56,7 +56,7 @@ h2 {
 #applyChangeBtn:active {
     background-color: rgb(255, 155, 174);
     color: white;
-    box-shadow: 2px 2px rgb(69, 68, 68);
+    box-shadow: 0px 1px rgb(69, 68, 68);
 }
 
 .question {
