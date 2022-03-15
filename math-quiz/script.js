@@ -1,9 +1,105 @@
+// timer
+class Timer {
+    constructor () {
+      this.isRunning = false;
+      this.startTime = 0;
+      this.overallTime = 0;
+    }
+  
+    _getTimeElapsedSinceLastStart () {
+      if (!this.startTime) {
+        return 0;
+      }
+    
+      return Date.now() - this.startTime;
+    }
+  
+    start () {
+    //   if (this.isRunning) {
+    //     return console.error('Timer is already running');
+    //   }
+  
+      this.isRunning = true;
+  
+      this.startTime = Date.now();
+    }
+  
+    stop () {
+    //   if (!this.isRunning) {
+    //     return console.error('Timer is already stopped');
+    //   }
+  
+      this.isRunning = false;
+  
+      this.overallTime = this.overallTime + this._getTimeElapsedSinceLastStart();
+    }
+  
+    reset () {
+
+      this.isRunning = false;
+
+      this.overallTime = 0;
+  
+      if (this.isRunning) {
+        this.startTime = Date.now();
+        return;
+      }
+  
+      this.startTime = 0;
+    }
+  
+    getTime () {
+      if (!this.startTime) {
+        return 0;
+      }
+  
+      if (this.isRunning) {
+        return this.overallTime + this._getTimeElapsedSinceLastStart();
+      }
+  
+      return this.overallTime;
+    }
+}
+
+var timeLimit = 0;
+var timedOut = false;
+const timer = new Timer();
+
+var noOfScore = 0
+var noOfQuestions = 0
+var gameMultiplier = 1
+
+getRadioValue()
+
+document.querySelector('.question p').innerHTML = ""
+
+// make element hidden
+document.getElementById('user-answer').style.visibility = "hidden";
+document.getElementById('submitBtn').style.visibility = "hidden";
+
+// applyChange()
+// checkIfContinue()
+
+// Get the input field
+var userInput = document.getElementById('user-answer');
+
+// Execute a function when the user releases a key on the keyboard
+userInput.addEventListener("keyup", function(event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.key === 'Enter') {
+      // Cancel the default action, if needed
+      event.preventDefault();
+      // Trigger the button element with a click
+      document.getElementById("submitBtn").click();
+    }
+});
+
+
 function getRadioValue() {
     selectedLevel = document.querySelector('input[name="level"]:checked').value;
     selectedMode = document.querySelector('input[name="mode"]:checked').value;
     selectedQns = document.querySelector('input[name="noqns"]:checked').value;
 }
-
 
 function applyChange() {
 
@@ -63,6 +159,16 @@ function applyChange() {
 
     if (selectedQns == '999') {
         timeLimit = 60
+
+        if (selectedLevel == "Easy") {
+            gameMultiplier = 1
+        } else if (selectedLevel == "Medium") {
+            gameMultiplier = 1.2
+        } else if (selectedLevel == "Hard") {
+            gameMultiplier = 1.5
+        } else if (selectedLevel == "Crazy") {
+            gameMultiplier = 1.8
+        }
     }
 
 }
@@ -128,6 +234,22 @@ function generateQ() {
     
 }
 
+function calcAccuracy(noCorrect, noAnswered) {
+    if (noAnswered == 0) {
+        return '?';
+    } else {
+        return String(Math.round(noCorrect / noAnswered * 100)) + '%';
+    }
+}
+
+function calcScore(noCorrect, noAnswered, multiplier) {
+    if (noAnswered == 0) {
+        return 0;
+    } else {
+        return Math.round(multiplier*noCorrect*noCorrect/noAnswered*100);
+    }
+}
+
 function checkIfContinue() {
 
     // make element visible
@@ -139,9 +261,9 @@ function checkIfContinue() {
 
     // recalculate score
     if (selectedQns != 999) {
-        document.querySelector('.score p').innerHTML = 'Progress: ' + noOfQuestions + ' / ' + selectedQns + " (Accuracy: " + String(Math.round(noOfScore/noOfQuestions*100)) + "%)"
+        document.querySelector('.score p').innerHTML = 'Progress: ' + noOfQuestions + ' / ' + selectedQns + " (Accuracy: " + calcAccuracy(noOfScore, noOfQuestions) + ")"
     } else {
-        document.querySelector('.score p').innerHTML = 'Score: ' + String(Math.round(noOfScore*noOfScore/noOfQuestions*100)) + " (Accuracy: " + String(Math.round(noOfScore/noOfQuestions*100)) + "%)"
+        document.querySelector('.score p').innerHTML = 'Score: ' + String(calcScore(noOfScore,noOfQuestions,gameMultiplier)) + " (Accuracy: " + calcAccuracy(noOfScore, noOfQuestions) + ")"
     }
     
 
@@ -175,10 +297,10 @@ function checkIfContinue() {
                 medal = "🤦🏻‍♂️ You can do better!"
             }
     
-            document.querySelector('.question p').innerHTML = medal + "<br />" + "You answered " + String(Math.round(noOfScore/selectedQns*100)) + "% of the questions correctly."
+            document.querySelector('.question p').innerHTML = medal + "<br />" + "You answered " + calcAccuracy(noOfScore,selectedQns) + " of the questions correctly."
     
         } else {
-            document.querySelector('.question p').innerHTML = '👍 Score: ' + String(Math.round(noOfScore * noOfScore / noOfQuestions * 100)) + "<br />" + "Answered: " + String(noOfQuestions) + "<br />" + "Accuracy: " + String(Math.round(noOfScore/noOfQuestions*100)) + "%"
+            document.querySelector('.question p').innerHTML = '👍 Score: ' + calcScore(noOfScore,noOfQuestions,gameMultiplier) + "<br />" + "Answered: " + String(noOfQuestions) + "<br />" + "Accuracy: " + calcAccuracy(noOfScore, noOfQuestions)
         }
 
         
@@ -204,98 +326,3 @@ function evaluateAns() {
 
     }
 }
-
-class Timer {
-    constructor () {
-      this.isRunning = false;
-      this.startTime = 0;
-      this.overallTime = 0;
-    }
-  
-    _getTimeElapsedSinceLastStart () {
-      if (!this.startTime) {
-        return 0;
-      }
-    
-      return Date.now() - this.startTime;
-    }
-  
-    start () {
-    //   if (this.isRunning) {
-    //     return console.error('Timer is already running');
-    //   }
-  
-      this.isRunning = true;
-  
-      this.startTime = Date.now();
-    }
-  
-    stop () {
-    //   if (!this.isRunning) {
-    //     return console.error('Timer is already stopped');
-    //   }
-  
-      this.isRunning = false;
-  
-      this.overallTime = this.overallTime + this._getTimeElapsedSinceLastStart();
-    }
-  
-    reset () {
-
-      this.isRunning = false;
-
-      this.overallTime = 0;
-  
-      if (this.isRunning) {
-        this.startTime = Date.now();
-        return;
-      }
-  
-      this.startTime = 0;
-    }
-  
-    getTime () {
-      if (!this.startTime) {
-        return 0;
-      }
-  
-      if (this.isRunning) {
-        return this.overallTime + this._getTimeElapsedSinceLastStart();
-      }
-  
-      return this.overallTime;
-    }
-}
-
-// timer
-
-timeLimit = 0;
-timedOut = false;
-const timer = new Timer();
-
-noOfScore = 0
-noOfQuestions = 0
-getRadioValue()
-
-document.querySelector('.question p').innerHTML = ""
-
-// make element hidden
-document.getElementById('user-answer').style.visibility = "hidden";
-document.getElementById('submitBtn').style.visibility = "hidden";
-
-// applyChange()
-// checkIfContinue()
-
-// Get the input field
-var userInput = document.getElementById('user-answer');
-
-// Execute a function when the user releases a key on the keyboard
-userInput.addEventListener("keyup", function(event) {
-    // Number 13 is the "Enter" key on the keyboard
-    if (event.key === 'Enter') {
-      // Cancel the default action, if needed
-      event.preventDefault();
-      // Trigger the button element with a click
-      document.getElementById("submitBtn").click();
-    }
-  });
