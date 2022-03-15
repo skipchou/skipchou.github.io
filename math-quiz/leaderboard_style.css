@@ -1,0 +1,73 @@
+body {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    background-color: rgba(255, 220, 226, 0.918);
+    color: black;
+}
+
+h1 {
+    font-size: 20px;
+}
+
+p {
+    font-size: 20px;
+    color: dimgrey;
+    padding: 5px;
+}
+
+.wrapper {
+    background-color: rgb(255, 255, 255);
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 10px rgb(240, 130, 176);
+    font-size: 16px;
+}
+
+.leaderboardList {
+    list-style:none
+}
+
+#backBtn {
+    height: 35px;
+    width: 65%;
+    margin-top: 10px;
+    background-color: rgb(193, 193, 255);
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0px 3px rgb(41, 40, 40);
+}
+
+#backBtn:hover {background-color: rgb(220, 220, 255);}
+
+#backBtn:active {
+    background-color: rgb(221, 221, 255);
+    color: white;
+    box-shadow: 0px 1px rgb(69, 68, 68);
+}
+
+#clearBtn {
+    height: 35px;
+    width: 33%;
+    margin-top: 10px;
+    background-color: rgb(195, 195, 211);
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0px 3px rgb(41, 40, 40);
+}
+
+#clearBtn:hover {background-color: rgb(221, 221, 223);}
+
+#clearBtn:active {
+    background-color: rgb(241, 241, 243);
+    color: white;
+    box-shadow: 0px 1px rgb(69, 68, 68);
+}

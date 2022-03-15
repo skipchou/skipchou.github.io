@@ -76,6 +76,8 @@ document.querySelector('.question p').innerHTML = ""
 // make element hidden
 document.getElementById('user-answer').style.visibility = "hidden";
 document.getElementById('submitBtn').style.visibility = "hidden";
+document.getElementById('user-name').style.visibility = "hidden";
+document.getElementById('saveScoreBtn').style.visibility = "hidden";
 
 // applyChange()
 // checkIfContinue()
@@ -85,7 +87,7 @@ var userInput = document.getElementById('user-answer');
 
 // Execute a function when the user releases a key on the keyboard
 userInput.addEventListener("keyup", function(event) {
-    // Number 13 is the "Enter" key on the keyboard
+    
     if (event.key === 'Enter') {
       // Cancel the default action, if needed
       event.preventDefault();
@@ -93,6 +95,24 @@ userInput.addEventListener("keyup", function(event) {
       document.getElementById("submitBtn").click();
     }
 });
+
+
+const userName = document.getElementById('user-name');
+const saveScoreBtn = document.getElementById('saveScoreBtn');
+const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
+saveScoreBtn.disabled = true;
+
+userName.addEventListener("keyup", function(event) {
+    saveScoreBtn.disabled = !userName.value
+    
+    if (event.key === 'Enter') {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        document.getElementById("saveScoreBtn").click();
+    }
+})
 
 
 function getRadioValue() {
@@ -138,6 +158,10 @@ function applyChange() {
     // make element visible
     document.getElementById('user-answer').style.visibility = "visible";
     document.getElementById('submitBtn').style.visibility = "visible";
+
+    // hide save score elements
+    document.getElementById('user-name').style.visibility = "hidden";
+    document.getElementById('saveScoreBtn').style.visibility = "hidden";
 
     // move focus to answer box
     document.getElementById('user-answer').focus();
@@ -271,12 +295,15 @@ function checkIfContinue() {
     document.getElementById('user-answer').value = ''
 
     if (noOfQuestions < selectedQns && timedOut == false) {
+        // DURING GAME
+
         generateQ()
 
         // show question number
         document.querySelector('.titles h2').innerHTML = 'Question ' + String(noOfQuestions + 1)
-    } else {
 
+    } else {
+        // WHEN GAME FINISHES
         // stop checking timer
         clearInterval(timerInterval)
 
@@ -284,7 +311,9 @@ function checkIfContinue() {
         document.getElementById('user-answer').style.visibility = "hidden";
         document.getElementById('submitBtn').style.visibility = "hidden";
         
-        document.querySelector('.titles h2').innerHTML = '❤️  ❤️  ❤️'
+        document.querySelector('.question p').innerHTML = 'Thank you for playing!'
+        document.querySelector('.feedback p').innerHTML = ''
+        document.querySelector('.score p').innerHTML = ''
 
         if (selectedQns != 999) {
             if (noOfScore == selectedQns) {
@@ -297,12 +326,20 @@ function checkIfContinue() {
                 medal = "🤦🏻‍♂️ You can do better!"
             }
     
-            document.querySelector('.question p').innerHTML = medal + "<br />" + "You answered " + calcAccuracy(noOfScore,selectedQns) + " of the questions correctly."
+            document.querySelector('.titles h2').innerHTML = medal + "<br />" + "You answered " + calcAccuracy(noOfScore,selectedQns) + " of the questions correctly."
     
         } else {
-            document.querySelector('.question p').innerHTML = '👍 Score: ' + calcScore(noOfScore,noOfQuestions,gameMultiplier) + "<br />" + "Answered: " + String(noOfQuestions) + "<br />" + "Accuracy: " + calcAccuracy(noOfScore, noOfQuestions)
-        }
+            document.querySelector('.titles h2').innerHTML = 'Score: ' + calcScore(noOfScore,noOfQuestions,gameMultiplier) + "<br />" + "Answered: " + String(noOfQuestions) + "<br />" + "Accuracy: " + calcAccuracy(noOfScore, noOfQuestions)
 
+            // show field and button to save score
+            document.getElementById('user-name').style.visibility = "visible";
+            document.getElementById('saveScoreBtn').style.visibility = "visible";
+
+            // move focus to user name box
+            // document.getElementById('user-name').focus();
+            // document.getElementById('user-name').select();
+
+        }
         
     }
 
@@ -316,7 +353,7 @@ function evaluateAns() {
         if (answer == userAnswer.value) {
             document.querySelector('.feedback p').innerHTML = '✅'
             noOfScore++
-            setTimeout("checkIfContinue()", 300)
+            setTimeout("checkIfContinue()", 200)
         } else {
             document.querySelector('.feedback p').innerHTML = '❌ Answer: ' + answer
             setTimeout("checkIfContinue()", 1000)
@@ -325,4 +362,35 @@ function evaluateAns() {
         noOfQuestions++ //increment by 1
 
     }
+}
+
+function saveScore() {
+    
+    userNameValue = document.getElementById('user-name').value
+
+    document.querySelector('.question p').innerHTML = 'Score saved!'
+    // document.querySelector('.feedback p').innerHTML = 'Score saved!'
+    document.querySelector('.score p').innerHTML = ''
+
+    document.getElementById('user-name').style.visibility = "hidden";
+    document.getElementById('saveScoreBtn').style.visibility = "hidden";
+
+    saveScoreBtn.disabled = true
+
+    const gameReport = {
+        score: calcScore(noOfScore,noOfQuestions,gameMultiplier),
+        name: userNameValue
+    };
+
+    highScores.push(gameReport) // append to high scores
+    
+    highScores.sort( (a,b) => b.score - a.score) // implicit return of a function - put b before a if b > a
+
+    highScores.splice(5) // cut off at 5 records
+
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+
+    // clear user name field
+    document.getElementById('user-name').value = ''
+
 }

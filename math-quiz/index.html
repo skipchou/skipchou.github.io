@@ -43,7 +43,8 @@
             </div>
 
             <div class="applyButtonArea">
-                <button id="applyChangeBtn" onclick="applyChange()">Start</button>
+                <button id="leaderboardBtn" onclick="location.href='leaderboard.html';">Leaderboard</button>
+                <button id="applyChangeBtn" onclick="applyChange()">Play</button>
             </div>
 
         </div>
@@ -54,12 +55,22 @@
             <p>Time left: <span id="time">0</span>s</p>
         </div>
 
+
+
         <div class="question">
             <p></p>
             <div>
                 <input type="number" id="user-answer" maxlength="12" inputmode="numeric">
                 <button id="submitBtn" onclick="evaluateAns()">Submit</button>
             </div>    
+        </div>
+
+        <div class="saveScore">
+            <form action="javascript:saveScore()">
+                <input type="text" id="user-name" pattern="[A-Za-z0-9]+" placeholder="Your Name" maxlength="20" title="Use letters and/or numbers for your names only!"><br>
+                <input id="saveScoreBtn" type="submit">
+            </form>
+            
         </div>
 
         <div class="feedback">
@@ -69,8 +80,9 @@
         <div class="score">
             <p></p>
         </div>
-        
 
+
+        
     
     </div>
     
