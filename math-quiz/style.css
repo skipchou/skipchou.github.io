@@ -42,12 +42,12 @@ h2 {
 
 #applyChangeBtn {
     height: 35px;
-    width: 65%;
+    width: 60%;
     margin-top: 10px;
     background-color: pink;
     border: 2px solid black;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 900;
     box-shadow: 0px 3px rgb(41, 40, 40);
 }
@@ -62,12 +62,12 @@ h2 {
 
 #leaderboardBtn {
     height: 35px;
-    width: 33%;
+    width: 38%;
     margin-top: 10px;
     background-color: rgb(193, 193, 255);
     border: 2px solid black;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 15px;
     box-shadow: 0px 3px rgb(41, 40, 40);
 }
 
