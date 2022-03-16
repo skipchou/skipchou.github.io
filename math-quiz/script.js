@@ -346,6 +346,11 @@ function checkIfContinue() {
 }
 
 function evaluateAns() {
+
+    // move focus to answer box
+    document.getElementById('user-answer').focus();
+    document.getElementById('user-answer').select();
+    
     if (noOfQuestions < selectedQns) {
         
         const userAnswer = document.getElementById('user-answer')
