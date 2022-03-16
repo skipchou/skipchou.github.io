@@ -12,10 +12,24 @@ function displayLeaderboard() {
     highScoresList = highScores.map(score => {
         return `<li class="high-score">${score.name} - ${score.score}</li>`;
     }).join("");
+
+    leaderNameList = highScores.map(score => {
+        return `<li class="high-score">${score.name}</li>`;
+    }).join("")
+
+    leaderScoreList = highScores.map(score => {
+        return `<li class="high-score">${score.score}</li>`;
+    }).join("")        
     
     console.log(highScoresList);
     
-    document.querySelector('.wrapper p').innerHTML = highScoresList;
+    if (highScoresList=='') {
+        document.querySelectorAll('.listArea p')[0].innerHTML = 'Nobody has completed a challenge on this device yet.';
+    } else {
+        document.querySelectorAll('.listArea p')[0].innerHTML = leaderNameList;
+        document.querySelectorAll('.listArea p')[1].innerHTML = leaderScoreList;
+    }
+    
 }
 
 function clearLocalStorage() {
@@ -32,6 +46,8 @@ function clearLocalStorage() {
 function validationQnGen() {
 
     document.getElementById('validationQnSec').style.visibility = "visible";
+
+    document.getElementById('validationAns').value = '';
 
     const rn1 = Math.floor(Math.random() * 10) + 90
     const rn2 = Math.floor(Math.random() * 10) + 90

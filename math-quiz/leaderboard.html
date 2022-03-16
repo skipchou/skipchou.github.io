@@ -13,21 +13,30 @@
 
         <h1>Leaderboard</h1>
 
-        <p class="leaderboardList"></p>
-
+        <div class="listArea">
+            <div class="column left">
+                <p></p>
+            </div>
+            <div class="column right">
+                <p></p>    
+            </div>
+        </div>
+        
         <div class="backButtonArea">
             <button id="backBtn" onclick="location.href='index.html';"> &lt&lt Back to game</button>
             <button id="clearBtn" onclick="validationQnGen()">Clear leaderboard</button>
         </div>
 
-        <div class="validationQn" id="validationQnSec">
-            <p></p>
-            <form action="javascript:clearLocalStorage()">
-                <input type="number" id="validationAns" maxlength="10">
-                <input id="submitValidation" type="submit">
-            </form>
-        </div>
+        
 
+    </div>
+
+    <div class="validationQn" id="validationQnSec">
+        <p></p>
+        <form action="javascript:clearLocalStorage()">
+            <input type="number" id="validationAns" maxlength="10">
+            <input id="submitValidation" type="submit">
+        </form>
     </div>
     
 <script src="leaderboard_script.js" charset="UTF-8"></script>
