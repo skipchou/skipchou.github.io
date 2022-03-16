@@ -315,6 +315,8 @@ function checkIfContinue() {
         document.querySelector('.feedback p').innerHTML = ''
         document.querySelector('.score p').innerHTML = ''
 
+        document.getElementById('user-answer').blur();
+
         if (selectedQns != 999) {
             if (noOfScore == selectedQns) {
                 medal = "🥇 Perfect!"
@@ -349,7 +351,7 @@ function evaluateAns() {
 
     // move focus to answer box
     document.getElementById('user-answer').focus();
-    document.getElementById('user-answer').select();
+    // document.getElementById('user-answer').select();
     
     if (noOfQuestions < selectedQns) {
         
