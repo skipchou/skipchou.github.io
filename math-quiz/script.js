@@ -182,7 +182,7 @@ function applyChange() {
     }
 
     if (selectedQns == '999') {
-        timeLimit = 3
+        timeLimit = 60
 
         if (selectedLevel == "Easy") {
             gameMultiplier = 1

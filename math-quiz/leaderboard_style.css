@@ -10,6 +10,11 @@ h1 {
     font-size: 20px;
 }
 
+h2 {
+    font-size: 16px;
+    color: gray;
+}
+
 .wrapper {
     background-color: rgb(255, 255, 255);
     width: 90%;
@@ -25,11 +30,10 @@ h1 {
 }
 
 .listArea {
-    list-style:none;
     display:flex;
-    text-align: right;
-    font-size: 14px;
+    font-size: 16px;
     color: dimgrey;
+    font-family: monospace;
 }
 
 .column {
@@ -37,12 +41,16 @@ h1 {
 }
 
 .left {
-    width: 70%;
+    list-style:decimal;
+    text-align: left;
+    width: 85%;
 }
 
 .right {
-    width: 30%;
-    text-align: left;
+    list-style:none;
+    text-align: right;
+    width: 15%;
+    font-weight: 900;
 }
 
 #backBtn {

@@ -8,10 +8,6 @@ function displayLeaderboard() {
     const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
     console.log(highScores);
-    
-    highScoresList = highScores.map(score => {
-        return `<li class="high-score">${score.name} - ${score.score}</li>`;
-    }).join("");
 
     leaderNameList = highScores.map(score => {
         return `<li class="high-score">${score.name}</li>`;
@@ -21,14 +17,14 @@ function displayLeaderboard() {
         return `<li class="high-score">${score.score}</li>`;
     }).join("")        
     
-    console.log(highScoresList);
-    
-    if (highScoresList=='') {
-        document.querySelectorAll('.listArea p')[0].innerHTML = 'Nobody has completed a challenge on this device yet.';
+    if (leaderNameList=='') {
+        document.querySelector('.wrapper h2').innerHTML = 'Nobody has completed a challenge on this device yet.';
     } else {
-        document.querySelectorAll('.listArea p')[0].innerHTML = leaderNameList;
-        document.querySelectorAll('.listArea p')[1].innerHTML = leaderScoreList;
+        document.querySelector('.wrapper h2').innerHTML = '';
     }
+
+    document.querySelectorAll('.listArea p')[0].innerHTML = leaderNameList;
+    document.querySelectorAll('.listArea p')[1].innerHTML = leaderScoreList;
     
 }
 
