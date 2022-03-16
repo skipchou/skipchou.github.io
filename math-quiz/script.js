@@ -69,6 +69,21 @@ var noOfScore = 0
 var noOfQuestions = 0
 var gameMultiplier = 1
 
+const settingTimeLimit = {
+    "Easy":5,
+    "Medium":5,
+    "Hard":4,
+    "Crazy":4,
+    "1MC":60
+}
+
+const settingGameMultiplier = {
+    "Easy":1,
+    "Medium":1.2,
+    "Hard":1.3,
+    "Crazy":1.5
+}
+
 getRadioValue()
 
 document.querySelector('.question p').innerHTML = ""
@@ -171,29 +186,13 @@ function applyChange() {
     // re-generate question
     checkIfContinue()
 
-    if (selectedLevel == "Easy") {
-        timeLimit = selectedQns * 5
-    } else if (selectedLevel == "Medium") {
-        timeLimit = selectedQns * 5  
-    } else if (selectedLevel == "Hard") {
-        timeLimit = selectedQns * 5 
-    } else if (selectedLevel == "Crazy") {
-        timeLimit = selectedQns * 2
-    }
-
     if (selectedQns == '999') {
-        timeLimit = 60
-
-        if (selectedLevel == "Easy") {
-            gameMultiplier = 1
-        } else if (selectedLevel == "Medium") {
-            gameMultiplier = 1.2
-        } else if (selectedLevel == "Hard") {
-            gameMultiplier = 1.5
-        } else if (selectedLevel == "Crazy") {
-            gameMultiplier = 1.8
-        }
+        timeLimit = settingTimeLimit["1MC"]
+    } else {
+        timeLimit = selectedQns * settingTimeLimit[selectedLevel]
     }
+
+    gameMultiplier = settingGameMultiplier[selectedLevel]
 
 }
 
@@ -305,6 +304,7 @@ function checkIfContinue() {
     } else {
         // WHEN GAME FINISHES
         // stop checking timer
+        timer.stop()
         clearInterval(timerInterval)
 
         // disable answer box and button
@@ -352,6 +352,8 @@ function evaluateAns() {
     // move focus to answer box
     document.getElementById('user-answer').focus();
     // document.getElementById('user-answer').select();
+
+    const submitBtn = document.getElementById('submitBtn');
     
     if (noOfQuestions < selectedQns) {
         
@@ -393,11 +395,16 @@ function saveScore() {
     
     highScores.sort( (a,b) => b.score - a.score) // implicit return of a function - put b before a if b > a
 
-    highScores.splice(5) // cut off at 5 records
+    highScores.splice(10) // cut off at 5 records
 
     localStorage.setItem("highScores", JSON.stringify(highScores));
 
     // clear user name field
     document.getElementById('user-name').value = ''
+
+    window.setTimeout(function() {
+        window.location.href = 'leaderboard.html';
+    }, 1500);
+
 
 }

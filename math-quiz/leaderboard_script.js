@@ -45,8 +45,8 @@ function validationQnGen() {
 
     document.getElementById('validationAns').value = '';
 
-    const rn1 = Math.floor(Math.random() * 10) + 90
-    const rn2 = Math.floor(Math.random() * 10) + 90
+    const rn1 = Math.floor(Math.random() * 99) + 391
+    const rn2 = Math.floor(Math.random() * 99) + 591
 
     ans = rn1 * rn2
 
