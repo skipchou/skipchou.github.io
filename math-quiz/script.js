@@ -319,13 +319,13 @@ function checkIfContinue() {
 
         if (selectedQns != 999) {
             if (noOfScore == selectedQns) {
-                medal = "🥇 Perfect!"
+                medal = "💎 Perfect!"
             } else if (noOfScore / selectedQns >= 0.9) {
-                medal = "🥈 Excellent!"
+                medal = "🎉 Excellent!"
             } else if (noOfScore / selectedQns >= 0.8) {
-                medal = "🥉 Great job!"
+                medal = "✨ Great job!"
             } else {
-                medal = "🤦🏻‍♂️ You can do better!"
+                medal = "😐 You can do better!"
             }
     
             document.querySelector('.titles h2').innerHTML = medal + "<br />" + "You answered " + calcAccuracy(noOfScore,selectedQns) + " of the questions correctly."
