@@ -23,8 +23,8 @@ function displayLeaderboard() {
         document.querySelector('.wrapper h2').innerHTML = '';
     }
 
-    document.querySelectorAll('.listArea p')[0].innerHTML = leaderNameList;
-    document.querySelectorAll('.listArea p')[1].innerHTML = leaderScoreList;
+    document.querySelectorAll('.listArea ol')[0].innerHTML = leaderNameList;
+    document.querySelectorAll('.listArea ol')[1].innerHTML = leaderScoreList;
     
 }
 
