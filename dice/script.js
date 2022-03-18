@@ -35,10 +35,10 @@ function rollFunc(){
     //Display winner
     if (firstRandomNumber > secondRandomNumber) {
         document.querySelector('h1').innerHTML = allEmojis[prizeRandomNumber]
-        document.querySelector('h2').innerHTML = player1Name.value + ' wins!!!'
+        document.querySelector('h2').innerHTML = player1NameValue + ' wins!!!'
     } else if (firstRandomNumber < secondRandomNumber) {
         document.querySelector('h1').innerHTML = allEmojis[prizeRandomNumber]
-        document.querySelector('h2').innerHTML = player2Name.value + ' wins!!!'
+        document.querySelector('h2').innerHTML = player2NameValue + ' wins!!!'
     } else {
         document.querySelector('h1').innerHTML = allEmojis[prizeRandomNumber]
         document.querySelector('h2').innerHTML = "Nobody wins!!!"
@@ -56,8 +56,21 @@ function rollFuncRpt() {
     document.querySelector('h1').innerHTML = "🎲"
     document.querySelector('h2').innerHTML = "Hold tight..."
 
-    showplayer1.innerHTML = player1Name.value
-    showplayer2.innerHTML = player2Name.value
+    if (player1Name.value == "") {
+        player1NameValue = "Player 1"
+    } else {
+        player1NameValue = player1Name.value
+    }
+
+    if (player2Name.value == "") {
+        player2NameValue = "Player 2"
+    } else {
+        player2NameValue = player2Name.value
+    }
+
+    showplayer1.innerHTML = player1NameValue
+    
+    showplayer2.innerHTML = player2NameValue
 
     diceAnimation()
 
