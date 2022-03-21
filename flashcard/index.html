@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Flashcards</h1>
+        <p>Use "," or "，" to separate items in your deck. <br>For example: apple, banana, pear</p>
+    </div>
+
+    <div class="wrapper">
+       
+        <div class="prefPanel">
+
+            <div class="createDeck">
+                <textarea id="deckOneInput" cols="40" rows="5"></textarea>
+            </div>
+
+            <div class="applyButtonArea">
+                <button id="addDeckBtn" onclick="addDeck()">Add Deck</button>
+                <!-- <button id="showDecks" onclick="displayDecks()">Show All Decks</button> -->
+                
+            </div>
+
+        </div>       
+
+        <div class="showAllDecksArea">
+            <h2>All Decks</h2>
+            <ol></ol>
+        </div>
+
+        <div class="otherOptionsArea">
+            <h2>Other Options</h2>
+            <button id="deleteDecks" onclick="deleteDecks()">Delete All Decks</button>
+        </div>   
+
+    </div>
+    
+<script src="script.js" charset="UTF-8"></script>
+</body>
+</html>

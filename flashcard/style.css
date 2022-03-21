@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+textarea {
+    width: 500px;
+    height: 180px;
+    border-width: 1.5px;
+    border-color: black;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+ol {
+    list-style:square;
+}
+
+button {
+    margin: 5px;
+    padding: 5px;
+    /* height: 30px; */
+    /* width: 150px; */
+    color: white;
+    border-radius: 5px;
+    background-color: red;
+    /* border-width: 0.5px; */
+}
+
+.deleteDeckInList {
+    background-color: red;
+    margin-left: 0px;
+    margin-bottom: 25px;
+    font-size: 12px;
+    height: 28px;
+}
+
+.playDeckInList {
+    background-color: green;
+    margin-bottom: 25px;
+    font-size: 12px;
+    font-weight: 900;
+    height: 28px;
+    width: 100px;
+}
+
+#addDeckBtn {
+    background-color: black;
+    height: 28px;
+    width: 150px;
+}
+
+#showDecks {
+    background-color: plum;
+    height: 40px;
+    width: 150px;
+}
+
+#deleteDecks {
+    background-color: red;
+    width: 150px;
+    height: 28px;
+    font-size: 10px;
+}
