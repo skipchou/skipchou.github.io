@@ -22,8 +22,14 @@ function displayDecks() {
         return `<li class="high-score">${decks.front}</li>`;
     }).join("")
 
-    document.querySelector(".showAllDecksArea ol").innerHTML = deckList;
+    // console.log("deck:" + deckList);
 
+    if (deckList == '') {
+        document.querySelector(".showAllDecksArea ol").innerHTML = 'Add a deck of flashcards to get started.';
+    } else {
+        document.querySelector(".showAllDecksArea ol").innerHTML = deckList;
+    }
+    
     createButtonElement();
 
 }

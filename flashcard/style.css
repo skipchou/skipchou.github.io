@@ -1,13 +1,28 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
+    /* text-align: center; */
+    width: 90%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wrapper {
+    width: 90%;
+    max-width: 500px;
+    /* align-items: center; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
 }
 
 textarea {
-    width: 500px;
+    width: 99%;
+    /* margin: 1px 0.5%; */
+    max-width: 500px;
     height: 180px;
+    /* margin-right: 0px; */
     border-width: 1.5px;
     border-color: black;
-    margin: 5px;
     border-radius: 5px;
     padding: 10px;
     font-size: 16px;
@@ -15,13 +30,13 @@ textarea {
 
 ol {
     list-style:square;
+    margin-left: -20px;
 }
 
 button {
     margin: 5px;
     padding: 5px;
     /* height: 30px; */
-    /* width: 150px; */
     color: white;
     border-radius: 5px;
     background-color: red;
@@ -30,7 +45,7 @@ button {
 
 .deleteDeckInList {
     background-color: red;
-    margin-left: 0px;
+    /* margin-left: 0px; */
     margin-bottom: 25px;
     font-size: 12px;
     height: 28px;
@@ -48,7 +63,10 @@ button {
 #addDeckBtn {
     background-color: black;
     height: 28px;
-    width: 150px;
+    width: 100%;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #showDecks {
@@ -61,5 +79,5 @@ button {
     background-color: red;
     width: 150px;
     height: 28px;
-    font-size: 10px;
+    font-size: 12px;
 }

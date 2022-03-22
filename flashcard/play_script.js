@@ -56,8 +56,10 @@ function buttonRespondor() {
         randomCardsSequencer();
         v = 0;
         document.querySelector(".cardsArea p").textContent = "Ready?...";
+        document.getElementById("nextBtn").disabled = true
         window.setTimeout(function() {
             document.querySelector(".cardsArea p").textContent = cardsFrontArray[v];
+            document.getElementById("nextBtn").disabled = false
         }, 800);
     } else {
         document.querySelector(".cardsArea p").textContent = cardsFrontArray[v];
@@ -67,7 +69,7 @@ function buttonRespondor() {
         document.getElementById("nextBtn").textContent = "Shuffle";
         document.getElementById("nextBtn").style.background = "#ffffff";
     } else {
-        document.getElementById("nextBtn").textContent = "Next";
+        document.getElementById("nextBtn").textContent = "Next Card";
         document.getElementById("nextBtn").style.background = "rgb(178, 248, 178)";
     }
 
