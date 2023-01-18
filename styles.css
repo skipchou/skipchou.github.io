@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  h1 {
+    text-align: left;
+    margin-top: 50px;
+    margin-left: 30px;
+    font-size: 80px;
+  }
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
+  nav ul {
+    list-style: none;
+    display: inline-block;
+  }
+  nav li {
+    display: block;
+    margin-bottom: 10px; /* add some margin at the bottom of each link */
+  }
+  nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 60px;
+  }
+  nav a:hover {
+    color: #0095f6;
+  }
